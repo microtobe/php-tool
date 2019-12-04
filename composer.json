@@ -1,0 +1,38 @@
+{
+  "name": "microtobe/PhpTool",
+  "description": "PHP efficient tools",
+  "keywords": [
+    "php",
+    "efficient",
+    "tool"
+  ],
+  "homepage": "https://github.com/microtobe/PhpTool",
+  "type": "project",
+  "license": "MIT License",
+  "support": {
+    "issues": "https://github.com/microtobe/PhpTool",
+    "forum": "https://github.com/microtobe/PhpTool",
+    "wiki": "https://github.com/microtobe/PhpTool",
+    "source": "https://github.com/microtobe/PhpTool"
+  },
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "PhpTool\\": "src"
+    }
+  },
+  "require": {
+    "php": ">=7.1.0"
+  },
+  "require-dev": {
+  },
+  "config": {
+    "process-timeout": 1800,
+    "fxp-asset": {
+      "enabled": false
+    },
+    "secure-http": false
+  },
+  "repositories": [
+  ]
+}

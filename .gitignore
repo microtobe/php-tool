@@ -1,0 +1,11 @@
+*.php.swp
+*.php.un~
+*.php.bak
+.buildpath
+.project
+.settings/
+.idea
+/vendor
+/_ide_helper.php
+/composer.lock
+.phpunit.result.cache
