@@ -243,7 +243,9 @@ class Arr
      */
     public static function extend($arrayMaster = [], $arraySlave = [], $keyAssoc = '', $keyNew = ''): array
     {
-        if (empty($arrayMaster) || empty($keyAssoc) || empty($arraySlave) || empty($keyNew)) return $arrayMaster;
+        if (empty($arrayMaster) || empty($keyAssoc) || empty($arraySlave) || empty($keyNew)) {
+            return $arrayMaster;
+        }
 
         foreach ($arrayMaster as $k => $v) {
             $arrayMaster[$k][$keyNew] = '';
@@ -257,7 +259,9 @@ class Arr
 
     public static function extendAll($arrayMaster = [], $arraySlave = [], $keyAssoc = ''): array
     {
-        if (empty($arrayMaster) || empty($keyAssoc) || empty($arraySlave)) return $arrayMaster;
+        if (empty($arrayMaster) || empty($keyAssoc) || empty($arraySlave)) {
+            return $arrayMaster;
+        }
 
         foreach ($arrayMaster as $k => $v) {
             if (isset($v[$keyAssoc]) && !empty($arraySlave[$v[$keyAssoc]])) {
@@ -455,9 +459,18 @@ class Arr
     public static function get(array $arr = [], $keys = '', $default = '')
     {
         $array = self::go($arr);
-        if (is_float($keys) && $keys === 0.0) $keys = '0.0';
-        if (is_numeric($keys)) $keys = strval($keys);
-        if (is_string($keys)) $keys = trim($keys, ' .');
+        if (is_float($keys) && $keys === 0.0) {
+            $keys = '0.0';
+        }
+
+        if (is_numeric($keys)) {
+            $keys = strval($keys);
+        }
+
+        if (is_string($keys)) {
+            $keys = trim($keys, ' .');
+        }
+
         if (empty($array) || (empty($keys) && $keys !== '0')) {
             return $array;
         }

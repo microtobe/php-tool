@@ -14,7 +14,7 @@ class Other
     /**
      * 检查变量是否标量
      * 标量类型包括：'int','string','float','boolean'
-     * @param mix $var
+     * @param mixed $var
      * @return bool
      */
     public static function isScalar($var = null)

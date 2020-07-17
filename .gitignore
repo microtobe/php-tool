@@ -9,3 +9,4 @@
 /_ide_helper.php
 /composer.lock
 .phpunit.result.cache
+/phpstan.neon

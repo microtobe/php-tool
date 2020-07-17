@@ -20,7 +20,9 @@ class Number
      */
     public static function division($dividend, $divisor, int $precision = 4)
     {
-        if (empty($dividend) || empty($divisor)) return 0;
+        if (empty($dividend) || empty($divisor)) {
+            return 0;
+        }
 
         return self::round($dividend / $divisor, $precision);
     }

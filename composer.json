@@ -16,11 +16,6 @@
     "source": "https://github.com/microtobe/php-tool"
   },
   "minimum-stability": "stable",
-  "autoload": {
-    "psr-4": {
-      "PhpTool\\": "src"
-    }
-  },
   "require": {
     "php": ">=7.1.0"
   },
@@ -31,7 +26,13 @@
     "fxp-asset": {
       "enabled": false
     },
-    "secure-http": false
+    "secure-http": false,
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "PhpTool\\": "src/"
+    }
   },
   "repositories": [
   ]
