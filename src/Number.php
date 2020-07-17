@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpTool;
 
 /**
- * Class Other
+ * Class Number
  * @package PhpTool
  */
 class Number
