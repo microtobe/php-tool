@@ -112,7 +112,7 @@ class Arr
     /**
      * 封装函数：array_map()
      * @param array $arr
-     * @param null  $callback
+     * @param mixed $callback
      * @return array
      */
     public static function map(array $arr = [], $callback = null): array
@@ -195,7 +195,7 @@ class Arr
             return [];
         }
 
-        if (Other::isScalar($columnKey)) {
+        if (Common::isScalar($columnKey)) {
             return array_column($arr, $columnKey, $indexKey);
         }
 
@@ -216,7 +216,7 @@ class Arr
     /**
      * 封装函数：max()
      * @param array $arr
-     * @return int|mixed
+     * @return int
      */
     public static function max(array $arr = []): int
     {
@@ -257,6 +257,12 @@ class Arr
         return $arrayMaster;
     }
 
+    /**
+     * @param array  $arrayMaster
+     * @param array  $arraySlave
+     * @param string $keyAssoc
+     * @return array
+     */
     public static function extendAll($arrayMaster = [], $arraySlave = [], $keyAssoc = ''): array
     {
         if (empty($arrayMaster) || empty($keyAssoc) || empty($arraySlave)) {
@@ -286,24 +292,6 @@ class Arr
         }
 
         return array_sum(self::column($arr, $key));
-    }
-
-    /**
-     * 封装函数：array_push()
-     * 区别：本函数返回结果数组
-     * @param array $arr
-     * @param mixed $var
-     * @return array
-     */
-    public static function push(array &$arr = [], $var = null): array
-    {
-        if (is_null($var)) {
-            return $arr;
-        }
-
-        array_push($arr, $var);
-
-        return $arr;
     }
 
     /**
@@ -410,6 +398,24 @@ class Arr
     }
 
     /**
+     * 封装函数：array_push()，批量加到数组的末尾
+     * 区别：本函数返回结果数组
+     * @param array $arr
+     * @param mixed $vars
+     * @return array
+     */
+    public static function push(array &$arr = [], ...$vars): array
+    {
+        if (empty($vars)) {
+            return $arr;
+        }
+
+        array_push($arr, ...$vars);
+
+        return $arr;
+    }
+
+    /**
      * 增加数组的 value，不带 key
      * @param array $arr
      * @param mixed $var
@@ -452,7 +458,7 @@ class Arr
      * 数组：根据 key 获取数组的 value
      * 可以用于多维数组，key 支持格式：0.name 或 [0, 'name']
      * @param array  $arr
-     * @param string $keys
+     * @param mixed  $keys
      * @param string $default
      * @return array|string
      */
@@ -511,22 +517,6 @@ class Arr
     }
 
     /**
-     * Add an element to an array using "dot" notation if it doesn't exist.
-     * @param  array  $array
-     * @param  string $key
-     * @param  mixed  $value
-     * @return array
-     */
-    public static function add($array, $key, $value)
-    {
-        if (is_null(static::get($array, $key))) {
-            static::set($array, $key, $value);
-        }
-
-        return $array;
-    }
-
-    /**
      * 判断数组是否纯数组，即：key为0开始的递增整数
      * An array is "associative" if it doesn't have sequential numerical keys beginning with zero.
      * @param  array $arr
@@ -541,11 +531,11 @@ class Arr
 
     /**
      * Convert the array into a query string.
-     * @param  array $array
+     * @param  array $arr
      * @return string
      */
-    public static function query($array)
+    public static function query(array $arr = [])
     {
-        return http_build_query($array, null, '&', PHP_QUERY_RFC3986);
+        return http_build_query($arr, '', '&', PHP_QUERY_RFC3986);
     }
 }

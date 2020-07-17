@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace PhpTool;
 
 /**
- * Class Other
+ * Class Common
  * @package PhpTool
  */
-class Other
+class Common
 {
 
     /**
@@ -17,7 +17,7 @@ class Other
      * @param mixed $var
      * @return bool
      */
-    public static function isScalar($var = null)
+    public static function isScalar($var = null): bool
     {
         if (is_string($var) || is_numeric($var) || is_bool($var)) {
             return true;
