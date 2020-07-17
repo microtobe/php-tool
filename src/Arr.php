@@ -401,7 +401,7 @@ class Arr
      * 封装函数：array_push()，批量加到数组的末尾
      * 区别：本函数返回结果数组
      * @param array $arr
-     * @param mixed $vars
+     * @param mixed ...$vars
      * @return array
      */
     public static function push(array &$arr = [], ...$vars): array
